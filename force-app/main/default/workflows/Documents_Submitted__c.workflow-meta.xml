@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CSE_Email_alert_to_candidate_for_filling_employer_details</fullName>
+        <description>CSE Email alert to candidate for filling employer details</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/CSE_email_template_for_employer_details</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_alert_for_Missing_Documents</fullName>
+        <description>Email alert for Missing Documents</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Missing_Document</template>
+    </alerts>
+</Workflow>

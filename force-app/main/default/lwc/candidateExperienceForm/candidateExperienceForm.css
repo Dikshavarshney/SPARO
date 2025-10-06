@@ -1,0 +1,35 @@
+/* Root container */
+:host {
+    display: block;
+    padding: 1rem;
+}
+
+/* Section card */
+.experience-section {
+    border: 1px solid #d8dde6;   /* Salesforce gray */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Section header */
+.experience-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2e844a;   /* Salesforce green */
+    margin-bottom: 0.75rem;
+}
+
+/* Align fields with spacing */
+lightning-input {
+    margin-bottom: 0.75rem;
+}
+
+/* Submit button alignment */
+.submit-btn {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}

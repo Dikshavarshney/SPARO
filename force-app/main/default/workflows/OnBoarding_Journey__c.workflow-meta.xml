@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_alert_to_recruitment_team_as_approvals</fullName>
+        <description>Email alert to recruitment team as approvals</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diksha.varshney@cunning-moose-vhsu35.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>manya.grover@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>vikku18singh@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/OnBoarding_Journey_Started</template>
+    </alerts>
+    <tasks>
+        <fullName>All_task_are_DONE</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>Congratulations!, as new employee&apos;s onboarding has completed with no pending task.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>All task are DONE</subject>
+    </tasks>
+    <tasks>
+        <fullName>Congratulation_New_Joinee_has_OnBoarded</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>Congratulation!! New Joine has OnBoarded.
+
+Regards</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Congratulation!! New Joine has OnBoarded</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_Provide_the_assets</fullName>
+        <assignedTo>manya.grover@gmail.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Please Provide the assets and share the Orientation date</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Please Provide the assets</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_determine_the_team</fullName>
+        <assignedTo>diksha.varshney@cunning-moose-vhsu35.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Please determine the team and allow for next step</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Please determine the team</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_verify_the_Documents</fullName>
+        <assignedTo>manya.grover@gmail.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Please verify the Documents and allow for next step</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Please verify the Documents</subject>
+    </tasks>
+    <tasks>
+        <fullName>Provide_Assets</fullName>
+        <assignedTo>diksha.varshney@cunning-moose-vhsu35.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Document has verified and Team has been assigned, Please provide the assets to the joinee.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Provide Assets</subject>
+    </tasks>
+</Workflow>

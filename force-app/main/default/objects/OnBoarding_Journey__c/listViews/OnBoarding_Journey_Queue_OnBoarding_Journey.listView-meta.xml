@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnBoarding_Journey_Queue_OnBoarding_Journey</fullName>
+    <filterScope>Queue</filterScope>
+    <label>OnBoarding Journey Queue</label>
+    <queue>OnBoarding_Journey_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

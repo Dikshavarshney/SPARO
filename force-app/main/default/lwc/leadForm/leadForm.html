@@ -1,0 +1,47 @@
+<template>
+    <lightning-card class="custom-card">
+        <h1>Job Application Form</h1>
+        <div class="form-wrapper slds-p-around_medium">
+            <template if:false={isSubmitted}>
+                <lightning-input class="input-field" label="Applied for" name="JobApplied" value={jobName} read-only></lightning-input>
+
+                <lightning-input class="input-field" label="First Name" value={firstName} name="firstName" placeholder="Enter First Name" onchange={handleChange}></lightning-input>
+
+                <lightning-input class="input-field" label="Last Name" value={lastName} name="lastName" placeholder="Enter Last Name" onchange={handleChange}></lightning-input>
+
+                <lightning-input class={emailInputClass} name="email" label="Email" type="email" placeholder="Email" value={email} onchange={handleEmailChange}></lightning-input>
+
+               <template if:true={hasSubmitted}>
+                 <template if:true={emailError}>
+                 <div class="slds-text-color_error slds-p-top_x-small">{emailError}</div>
+                     </template>
+                    </template>
+
+                <lightning-input class="input-field" label="Phone" type="tel" value={phone} name="phone" placeholder="Your contact number" onchange={handleChange}></lightning-input>
+
+                <lightning-textarea class="input-field" label="Skills" value={skills} name="skills" placeholder="Skills" onchange={handleChange}></lightning-textarea>
+
+                <lightning-input class="input-field" label="Experience (Years)" value={experience} name="experience" placeholder="Experience" onchange={handleChange}></lightning-input>
+
+                <lightning-combobox class="input-field" label="Highest Qualification" placeholder="Highest Qualification" name="qualification" value={qualification} options={qualificationOptions} onchange={handleChange}></lightning-combobox>
+
+                <lightning-input class="input-field" label="Current Location" placeholder="Location" value={location} name="location" onchange={handleChange}></lightning-input>
+
+                <lightning-input class="input-field" type="file" label="Upload Resume" onchange={handleFileUpload}></lightning-input>
+
+                <template if:true={fileName}>
+                    <p class="uploaded-file-name">📄 Uploaded: {fileName}</p>
+                </template>
+
+                <lightning-button label="Submit" variant="brand" onclick={handleSubmit} class="submit-btn"></lightning-button>
+            </template>
+
+            <template if:true={isSubmitted}>
+                <div class="thank-you-message">
+                    <h2>🎉 Thank You for Submitting!</h2>
+                    <p>You applied for <strong>{jobName}</strong>. We’ll contact you soon.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

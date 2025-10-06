@@ -1,0 +1,51 @@
+<template>
+    <template if:true={isModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-modal__close" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                    </button>
+                    <h2 class="slds-modal__title">Document Submission Form</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium" style="max-height:60vh; overflow-y:auto;">
+                    <template if:false={isSubmitted}>
+                        <div class="form-container">
+                            <lightning-input label="Full Name" name="name" value={name} onchange={handleChange}></lightning-input>
+                            <lightning-input label="Email" type="email" name="email" value={email} onchange={handleChange}></lightning-input>
+                            <lightning-input label="Phone" type="tel" name="phone" value={phone} onchange={handleChange}></lightning-input>
+
+                            <template for:each={fileInputListWithNames} for:item="item">
+    <div key={item.key} class="file-upload-row">
+        <lightning-input 
+            type="file" 
+            label={item.label}
+            data-doc={item.key}
+            onchange={handleFileUpload}>
+        </lightning-input>
+
+        <template if:true={item.fileName}>
+            <span class="file-name">{item.fileName}</span>
+        </template>
+    </div>
+</template>
+
+                            <div class="button-wrapper">
+                                <lightning-button variant="brand" label="Submit" onclick={handleSubmit}></lightning-button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:true={isSubmitted}>
+                        <lightning-card title="Thank You">
+                            <p class="slds-p-around_medium">Your documents have been submitted successfully. Redirecting...</p>
+                        </lightning-card>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,176 @@
+.job-list {
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+
+}
+
+
+.job-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-left: 6px solid #568203; /* Avocado accent */
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    flex: 1 1 auto; 
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.job-card h3 {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+}
+
+
+.job-card p {
+    margin: 0.3rem 0;
+    color: #555;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.job-card p strong {
+    color: #333;
+}
+
+
+.apply-btn {
+    margin-top: 1rem;
+    background-color: #568203;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    align-self: flex-end;
+}
+
+.apply-btn:hover {
+    background-color: #456a02;
+    transform: scale(1.03);
+}
+
+/*----Modal----*/
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    position: relative;
+    background: transparent; /* Let form wrapper control the look */
+    border-radius: 0; /* No border radius needed here */
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    box-shadow: none;
+    padding: 0; /* Removed padding so the form-wrapper handles spacing */
+}
+
+
+
+.modal-body.scrollable {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.success-message {
+    padding: 1rem;
+    background-color: #d4edda;
+    color: #155724;
+    margin: 1rem;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* SLDS style mimic for link */
+.jd-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;   /* Safari/Chrome */
+    line-clamp: 3;           /* Standard */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 80px;
+    
+}
+
+.jd-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    max-height: none;
+}
+
+.show-link-wrapper {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.show-link {
+    color: #0176d3;
+    cursor: pointer;
+    font-weight: 550;
+    text-decoration: none;
+    font-size: 14px;
+}
+.show-link:hover {
+    text-decoration: underline;
+}
+
+
+.job-card p text {
+    color: #555;
+    font-size: 0.875rem;
+    line-height: 1.4;
+
+}

@@ -1,0 +1,102 @@
+<template>
+    <lightning-card class="custom-card" title="Candidate Document Submission">
+        <div class="form-container">
+
+            <!-- STEP 1: Basic Info -->
+            <template if:false={showFileSection}>
+                <lightning-input 
+                    class="form-input" 
+                    label="Full Name" 
+                    placeholder="Enter Full Name"
+                    value={name} 
+                    onchange={handleChange} 
+                    name="name">
+                </lightning-input>
+
+                <lightning-input 
+                    class="form-input" 
+                    type="email" 
+                    label="Email" 
+                    value={email}
+                    placeholder="Enter Email" 
+                    onchange={handleChange} 
+                    name="email">
+                </lightning-input>
+
+                <lightning-input 
+                    class="form-input" 
+                    type="tel" 
+                    label="Phone Number" 
+                    value={phone} 
+                    placeholder="Enter Phone Number"
+                    onchange={handleChange} 
+                    name="phone">
+                </lightning-input>
+
+                <div class="button-wrapper">
+                    <lightning-button 
+                        variant="brand" 
+                        label="Next" 
+                        onclick={handleFirstSubmit}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <!-- STEP 2: Dynamic File Uploads -->
+<!-- STEP 2: Dynamic File Uploads -->
+<template if:true={showFileSection}>
+    <div class="section-header">Upload Documents</div>
+
+    <template for:each={missingUploadItems} for:item="item">
+        <div class="file-upload-block" key={item.key}>
+            <lightning-input 
+                class="form-input" 
+                type="file" 
+                label={item.label} 
+                onchange={handleFileUpload} 
+                data-doc={item.key}>
+            </lightning-input>
+            <template if:true={item.fileName}>
+                <div class="file-name-below">{item.fileName}</div>
+            </template>
+        </div>
+    </template>
+
+    <div class="button-wrapper">
+        <lightning-button 
+            variant="brand" 
+            label="Submit Documents" 
+            onclick={handleSubmit}
+            disabled={isLoading}>
+        </lightning-button>
+    </div>
+</template>
+
+<!-- Loader Fullscreen -->
+<template if:true={isLoading}>
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+</template>
+
+<!-- Success Message -->
+<template if:true={isSubmitted}>
+    <div class="success-message">
+        ✅ Your Documents have been submitted successfully!
+    </div>
+</template>
+
+
+            <!-- Spinner code after Demo -->
+
+
+            <!-- Success Message -->
+            <template if:true={isSubmitted}>
+                <div class="success-message">
+                    ✅ Your Documents have been submitted successfully!
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

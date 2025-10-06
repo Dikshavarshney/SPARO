@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Candidate</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>Applied_for__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Highest_Qualification__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Highest_Qualification__c</field>
+        <operation>equals</operation>
+        <value>BBA,MBA,BCA,MCA,B.Tech,M.Tech,Others</value>
+    </filters>
+    <label>Lead-Candidate</label>
+</ListView>

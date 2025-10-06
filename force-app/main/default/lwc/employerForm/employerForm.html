@@ -1,0 +1,113 @@
+<template>
+    <div class="main-container">
+        <div class="form-section">
+        <h4 class="slds-text-title_bold">Candidate Information</h4>
+
+            <lightning-input label="Name" name="name" value={name} onchange={handleChange}></lightning-input>
+            <lightning-input label="Email" name="email" type="email" value={email} onchange={handleChange}></lightning-input>
+            <lightning-input label="How many Employer you worked with?" name="experience" type="number" value={experience} onchange={handleChange}></lightning-input>
+        <div class="btn-container">
+            <lightning-button variant="brand" label="Submit" onclick={handleSubmit}></lightning-button>
+        </div>
+        </div>
+        </div>
+
+
+    <template if:true={showExperienceForm}>
+        <template for:each={experiences} for:item="exp">
+            <div key={exp.index}>
+                    <div class="form-section">
+                        <h4 class="slds-text-title_bold">{exp.title}</h4>
+                        <lightning-input label="Company Name" data-index={exp.index} name="companyName" value={exp.companyName} onchange={handleExpChange}></lightning-input>
+                        <lightning-input label="Job Role" data-index={exp.index} name="jobRole" value={exp.jobRole} onchange={handleExpChange}></lightning-input>
+                        <lightning-input label="Key Responsibilities" data-index={exp.index} name="keyResponsibilities" value={exp.keyResponsibilities} onchange={handleExpChange}></lightning-input>
+                        <lightning-input type="date" label="Start Date" data-index={exp.index} name="startDate" value={exp.startDate} onchange={handleExpChange}></lightning-input>
+                        <lightning-input type="date" label="End Date" data-index={exp.index} name="endDate" value={exp.endDate} onchange={handleExpChange}></lightning-input>
+
+                                                <!-- Gap Handling -->
+                        <template if:true={exp.showGap}>
+                            <lightning-input label="Reason of Gap" data-index={exp.index} name="reasonOfGap" value={exp.reasonOfGap} onchange={handleExpChange}></lightning-input>
+                        </template>
+
+                        <!-- Experience Letter -->
+                        <lightning-input
+                            class="form-input"
+                            type="file"
+                            label="Experience Letter"
+                            accept=".pdf, .doc, .docx, .jpg, .jpeg, .png"
+                            data-index={exp.index}
+                            onchange={handleFileUpload}>
+                        </lightning-input>
+                        <template if:true={exp.fileName}>
+                            <p class="file-label">Uploaded File: {exp.fileName}</p>
+                        </template>
+
+                        <!-- ✅ Only show for the LAST experience -->
+                        <template if:true={exp.isLast}>
+                            <div class="slds-m-top_medium slds-box slds-theme_shade">
+                                <h4 class="slds-text-title_bold">Reference Details</h4>
+
+                                <lightning-input label="Reference Name"
+                                    data-index={exp.index}
+                                    name="referenceName"
+                                    value={exp.referenceName}
+                                    onchange={handleExpChange}>
+                                </lightning-input>
+
+                                <lightning-input label="Reference Email"
+                                    type="email"
+                                    data-index={exp.index}
+                                    name="referenceEmail"
+                                    value={exp.referenceEmail}
+                                    onchange={handleExpChange}>
+                                </lightning-input>
+
+                                <lightning-input label="Reference Phone Number"
+                                    type="tel"
+                                    data-index={exp.index}
+                                    name="referencePhone"
+                                    value={exp.referencePhone}
+                                    onchange={handleExpChange}>
+                                </lightning-input>
+
+                                <lightning-input 
+                                    type="number" 
+                                    label="Notice Period (Days)" 
+                                    data-index={exp.index}
+                                    name="noticePeriodDays"
+                                    value={exp.noticePeriodDays}
+                                    onchange={handleExpChange}>
+                                </lightning-input>
+
+                                <!-- Another file upload -->
+                                <lightning-input
+                                    class="form-input"
+                                    type="file"
+                                    label="Notice Period Letter"
+                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                                    data-index={exp.index}
+                                    onchange={handleReferenceFileUpload}>
+                                </lightning-input>
+
+                                <template if:true={exp.referenceFileName}>
+                                    <p class="file-label">Uploaded File: {exp.referenceFileName}</p>
+                                </template>
+                                <div class="btn-container">
+                                 <lightning-button variant="success" label="Save All" onclick={handleFinalSubmit} disabled={isLoading}></lightning-button>
+                                   </div>
+                            </div>
+                        </template>
+
+
+                    </div>
+            </div>
+        </template>
+    </template>
+
+    <!-- Spinner -->
+    <template if:true={isLoading}>
+        <div class="slds-spinner_container">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,163 @@
+.footer-container {
+    background-color: #1d353a;
+    padding: 50px 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-white {
+    color: white;
+}
+
+.links-section {
+    margin-bottom: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.col {
+    flex: 1 1 22%;
+    min-width: 200px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Green underline for Quick Links and Contact titles */
+.quick-links-title,
+.contact-title {
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid green;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Responsive and green-colored bullet points for quick links */
+.footer-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 0;
+    color: green;
+    text-decoration: none;
+
+}
+
+.footer-list li {
+    margin-bottom: 0.6rem;
+    color: green;
+    text-decoration: none;
+
+}
+
+
+.footer-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-list li a:hover {
+    text-decoration: underline;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contact-info  {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+    gap: 8px;
+}
+
+.divider {
+    border-top: 1px solid #ffffff30;
+    margin: 1rem 0;
+}
+
+.bottom-section {
+    font-size: 0.9rem;
+}
+
+.social-icon {
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 0.3rem;
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Responsive behavior for small screens */
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .text-left,
+    .text-right {
+        text-align: left !important;
+    }
+
+    .col {
+        flex: 1 1 100%;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+    }
+}

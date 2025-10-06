@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="Open Job Applications" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <template if:true={jobList}>
+                <div class="job-list">
+                    <template for:each={jobList} for:item="job">
+                        <div key={job.Id} class="job-card">
+                            <h3>{job.Name}</h3> 
+
+                            <!-- JD with expand/collapse -->
+                            <div><p>
+                                <strong>Job Description :</strong></p>
+
+                               <div class={job.className}><p class="text">
+                                    <lightning-formatted-rich-text value={job.JD__c}></lightning-formatted-rich-text>
+                               </p></div>
+
+                                <!-- Read More/Less link -->
+                                <div class="show-link-wrapper">
+                                    <a class="show-link"
+                                       href="javascript:void(0)"
+                                       data-id={job.Id}
+                                       onclick={toggleJD}>
+                                        {job.readMoreLabel}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p><strong>Skills:</strong> {job.Required_Skills__c}</p>
+                            <p><strong>Location:</strong> {job.Location__c}</p>
+                            <p><strong>Type:</strong> {job.Job_Type__c}</p>
+                            <p><strong>Openings:</strong> {job.Openings__c}</p>
+                            <p><strong>Deadline:</strong> {job.Application_Deadline__c}</p>
+                            <button class="apply-btn"
+                                    data-id={job.Id}
+                                    data-name={job.Name}
+                                    onclick={handleApply}>
+                                Apply Now
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error loading job applications: {error.message}</p>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Modal -->
+    <template if:true={showModal}>
+        <section class="modal-backdrop">
+            <div class="modal">
+                <header class="modal-header">
+                    <button class="close-btn" onclick={handleCloseModal}>×</button>
+                </header>
+                <div class="modal-body scrollable">
+                    <c-lead-form job-id={selectedJobId}
+                                 job-name={selectedJobName}
+                                 onsubmitted={handleFormSubmitted}>
+                    </c-lead-form>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Success Message -->
+    <template if:true={showSuccess}>
+        <div class="success-message">
+            ✅ Your application has been submitted successfully!
+        </div>
+    </template>
+</template>

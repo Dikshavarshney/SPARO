@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CSE_Email_Alert_to_recruitment_team_for_new_lead</fullName>
+        <description>CSE Email Alert to recruitment team for new lead</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diksha.varshney@cunning-moose-vhsu35.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>manya.grover@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>vikku18singh@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/CSE_New_Lead_Notification_to_Team</template>
+    </alerts>
+    <alerts>
+        <fullName>CSE_Email_to_candidate_after_applying</fullName>
+        <description>Email alert to candidate after they filled the form of job application</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/CSE_Notify_Candidate_about_job_form_submission</template>
+    </alerts>
+</Workflow>

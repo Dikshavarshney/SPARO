@@ -1,0 +1,15 @@
+<template>
+    <div class="cards-container">
+        <template for:each={jobCategories} for:item="job">
+            <div key={job.id} class="card">
+                <div
+                     data-url={job.url}
+                     onclick={handleCardClick}
+                     style="cursor: pointer;">
+                    <img src={job.icon} alt={job.label} class="custom-icon" />
+                    <h2 class="card-label">{job.label}</h2>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

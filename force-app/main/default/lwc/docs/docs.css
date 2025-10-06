@@ -1,0 +1,47 @@
+.form-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: auto;
+    background: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.form-input {
+    width: 100%;
+}
+.section-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.2rem;
+    color: #333;
+}
+.button-wrapper {
+    text-align: left;
+    margin-top: 1.5rem;
+}
+.success-message {
+    padding: 1rem;
+    background-color: #d4edda;
+    color: #155724;
+    margin: 1rem;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+}
+/* Upload blocks */
+.file-upload-block {
+    margin-bottom: 0.8rem;
+}
+.file-name-below {
+    font-size: 0.85rem;
+    color: #4d4d4d;
+    margin-top: 0.2rem;
+    margin-left: 0.25rem;
+    word-break: break-word;
+}

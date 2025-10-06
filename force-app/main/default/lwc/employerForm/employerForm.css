@@ -1,0 +1,39 @@
+.exp-card {
+    margin: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #fafafa;
+}
+
+.form-section {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: auto;
+    background: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.form-input {
+    border-radius: 8px;
+}
+
+.btn-container {
+    text-align: start;
+    padding: 1rem;
+    margin-left: 0px;
+}
+
+lightning-button {
+    margin-top: 0.5rem;
+}
+
+h4{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interview_Journey_Queue_Interview</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Interview Journey Queue</label>
+    <queue>Interview_Journey_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

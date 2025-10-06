@@ -1,0 +1,109 @@
+<template>
+    <lightning-card title="Candidate Experience Form">
+        <div class="slds-p-around_medium">
+
+            <!-- STEP 1: Candidate Info -->
+            <template if:true={showCandidateForm}>
+                <lightning-input label="Candidate Name" value={candidateName} onchange={handleNameChange}></lightning-input>
+                <lightning-input type="email" label="Email" value={candidateEmail} onchange={handleEmailChange}></lightning-input>
+
+                <div class="slds-m-top_small">
+                    <lightning-button label="Check & Continue" variant="brand" onclick={handleCandidateSubmit}></lightning-button>
+                </div>
+            </template>
+
+            <!-- STEP 2: Experiences -->
+            <template if:true={showExperienceForm}>
+                <template for:each={experiences} for:item="exp">
+                    <div key={exp.clientIndex} class="slds-box slds-m-around_small slds-theme_default">
+                        <p class="slds-text-title_bold slds-m-bottom_small">{exp.label}</p>
+
+                        <lightning-input name="EmployerName" label="Employer Name"
+                                         data-clientindex={exp.clientIndex}
+                                         value={exp.EmployerName}
+                                         onchange={handleExperienceChange}>
+                        </lightning-input>
+
+                        <lightning-input name="JobRole" label="Job Role"
+                                         data-clientindex={exp.clientIndex}
+                                         value={exp.JobRole}
+                                         onchange={handleExperienceChange}>
+                        </lightning-input>
+
+                        <lightning-textarea name="KeyResponsibilities" label="Key Responsibilities"
+                                            data-clientindex={exp.clientIndex}
+                                            value={exp.KeyResponsibilities}
+                                            onchange={handleExperienceChange}>
+                        </lightning-textarea>
+
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <lightning-input name="StartDate" type="date" label="Start Date"
+                                                 data-clientindex={exp.clientIndex}
+                                                 value={exp.StartDate}
+                                                 onchange={handleExperienceChange}>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input name="EndDate" type="date" label="End Date"
+                                                 data-clientindex={exp.clientIndex}
+                                                 value={exp.EndDate}
+                                                 onchange={handleExperienceChange}>
+                                </lightning-input>
+                            </div>
+                        </div>
+
+                        <!-- Reason of Gap -->
+                        <template if:true={exp.showGapReason}>
+                            <lightning-textarea name="ReasonOfGap" label="Reason of Gap"
+                                                data-clientindex={exp.clientIndex}
+                                                value={exp.ReasonOfGap}
+                                                onchange={handleExperienceChange}>
+                            </lightning-textarea>
+                        </template>
+
+                        <!-- File Upload: shown after that experience has been saved (recordId present) -->
+                        <template if:true={exp.recordId}>
+                            <lightning-file-upload
+                                label="Upload Experience Documents"
+                                record-id={exp.recordId}
+                                data-clientindex={exp.clientIndex}
+                                onuploadfinished={handleUploadFinished}
+                                accept={acceptedFormats}
+                                multiple>
+                            </lightning-file-upload>
+
+                            <!-- uploaded files list -->
+                            <template if:true={exp.files}>
+                                <ul class="slds-list_dotted slds-m-top_small">
+                                    <template for:each={exp.files} for:item="f">
+                                        <li key={f.contentDocumentId} class="slds-m-bottom_x-small slds-grid slds-align-middle">
+                                            <a href={f.downloadUrl} target="_blank" class="slds-truncate slds-m-right_small">{f.title}</a>
+                                            <lightning-button-icon icon-name="utility:delete"
+                                                                   alternative-text="Delete"
+                                                                   title="Delete"
+                                                                   data-clientindex={exp.clientIndex}
+                                                                   data-docid={f.contentDocumentId}
+                                                                   onclick={handleFileDelete}
+                                                                   class="slds-m-left_small">
+                                            </lightning-button-icon>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </template>
+
+                        <!-- If not saved yet, show hint (but uploading is allowed only after save) -->
+                        <template if:false={exp.recordId}>
+                            <p class="slds-text-color_weak slds-m-top_small">Save experiences to enable file storage for that row (files will be attached to the saved Employer record).</p>
+                        </template>
+                    </div>
+                </template>
+
+                <div class="slds-m-top_small">
+                    <lightning-button label="Save Experiences" variant="brand" onclick={handleSaveExperiences}></lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

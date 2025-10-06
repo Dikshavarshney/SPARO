@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Document_Submission</fullName>
+        <description>Document Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Document_Submission</template>
+    </alerts>
+    <alerts>
+        <fullName>Interview_Rejection</fullName>
+        <description>Interview Rejection</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Interview_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Round_1_of_Interview</fullName>
+        <description>Round 1 of Interview</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/R1_Interview</template>
+    </alerts>
+    <alerts>
+        <fullName>Round_2_of_Interview</fullName>
+        <description>Round 2 of Interview</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/R2_Interview</template>
+    </alerts>
+    <alerts>
+        <fullName>Round_3_of_Interview</fullName>
+        <description>Round 3 of Interview</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/R3_Interview</template>
+    </alerts>
+    <alerts>
+        <fullName>When_interview_starts</fullName>
+        <description>When interview initiated</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/CSE_Notify_Candidate_interview_has_Initiated</template>
+    </alerts>
+</Workflow>

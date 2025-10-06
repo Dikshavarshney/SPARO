@@ -1,0 +1,113 @@
+/* jobApplicationForm.css */
+
+/* Container padding and background */
+.form-wrapper {
+    max-width: 600px;
+    margin: auto;
+    background-color: #ffffff; /* ← changed from #f9f9f9 */
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Add consistent spacing between fields */
+.form-wrapper lightning-input,
+.form-wrapper lightning-textarea,
+.form-wrapper lightning-combobox {
+    margin-bottom: 1rem;
+    --slds-c-input-color-background: #fcfcfcf9; /* Light grey input background */
+    --slds-c-input-color-border: rgb(174, 174, 174);
+    --slds-c-input-radius-border: 5px;
+    --slds-c-input-shadow: none;
+    --slds-c-input-text-color: #000000; /* Makes selected value text black */
+
+    font-size: 13px;
+    color: #000000;
+}
+.applied{
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;;
+}
+
+/* Special margin for the submit button */
+.form-wrapper .btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Optional styling for header inside card */
+.job-form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+/* Responsive adjustments (optional) */
+@media screen and (max-width: 480px) {
+    .form-wrapper {
+        padding: 1rem;
+    }
+}
+
+
+/* NEW adjustments (optional) */
+
+.custom-card {
+    --slds-c-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --slds-c-card-radius-border: 12px;
+    color: black;
+}
+
+
+
+.input-field {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+
+
+
+.submit-btn {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -8px;
+    margin-bottom: 12px;
+}
+
+.thank-you-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    color: #00695c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 18px;
+    font-weight: 500;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.uploaded-file-name {
+    font-size: 0.875rem;
+    color: #333;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+}
